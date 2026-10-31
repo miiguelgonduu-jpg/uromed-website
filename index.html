@@ -1540,12 +1540,48 @@
                     </div>
 
                     <!-- SPEI Info (Hidden by default) -->
-                    <div id="spei-info" class="hidden p-4 rounded-xl bg-slate-50 border border-stone-200 text-xs text-slate-700 space-y-1.5">
-                        <p class="font-bold text-slate-900">Datos para Transferencia Inmediata SPEI:</p>
-                        <p><strong>Banco:</strong> BBVA México</p>
-                        <p><strong>Beneficiario:</strong> Dr. Israel Jimenez Heredia / UROMED</p>
-                        <p><strong>CLABE Interbancaria:</strong> 012 180 0154892182 4</p>
-                        <p><strong>Monto Exacto:</strong> $100.00 MXN</p>
+                    <div id="spei-info" class="hidden p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-[#fdf2f2]/60 border border-stone-200 text-xs sm:text-sm text-slate-700 space-y-3">
+                        <div class="flex items-center justify-between pb-2 border-b border-stone-200">
+                            <span class="font-bold text-slate-900 flex items-center gap-2">
+                                <i data-lucide="building-2" class="w-4 h-4 text-[#ac2428]"></i>
+                                Transferencia Inmediata SPEI
+                            </span>
+                            <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">Sin Comisión</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-500 font-medium">Banco / Institución:</span>
+                                <span class="font-bold text-slate-900">Mercado Pago (STP)</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-500 font-medium">Beneficiario:</span>
+                                <span class="font-bold text-slate-900">Israel Jimenez Heredia</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 py-1.5 bg-white p-2.5 rounded-xl border border-stone-200">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">CLABE Interbancaria (18 dígitos):</span>
+                                    <span id="clabe-number" class="font-mono font-bold text-slate-900 text-sm tracking-wider">722969010777399615</span>
+                                </div>
+                                <button type="button" id="btn-copy-clabe" onclick="copyClabe()" class="px-3 py-1.5 bg-[#ac2428] hover:bg-[#c22d32] text-white rounded-lg text-xs font-bold transition flex items-center justify-center gap-1 shrink-0 shadow-sm active:scale-95">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                    <span id="copy-clabe-text">Copiar CLABE</span>
+                                </button>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-500 font-medium">Monto Exacto:</span>
+                                <span class="font-serif font-bold text-[#ac2428] text-base sm:text-lg">$100.00 MXN</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-500 font-medium">Concepto / Motivo:</span>
+                                <span class="font-bold text-slate-900">Consulta UROMED</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-[11px] leading-relaxed flex items-start gap-2">
+                            <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                            <span>Al transferir desde la app de tu banco, haz clic en el botón inferior para notificar al Dr. Israel por WhatsApp y recibir tu acceso.</span>
+                        </div>
                     </div>
 
                     <!-- Botón de Pago de 100 MXN -->
@@ -1885,6 +1921,7 @@
         });
 
         // Payment Method Switcher
+        let selectedPayMethod = "card";
         payMethodBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 payMethodBtns.forEach(b => {
@@ -1894,20 +1931,74 @@
                 btn.classList.add('active', 'border-2', 'border-[#ac2428]', 'bg-[#fdf2f2]', 'text-[#ac2428]', 'font-bold');
                 btn.classList.remove('border-stone-300', 'bg-white', 'text-slate-700', 'font-semibold');
 
-                const method = btn.getAttribute('data-method');
-                if (method === "card") {
+                selectedPayMethod = btn.getAttribute('data-method') || "card";
+                const cardInputs = document.querySelectorAll('#card-fields input');
+
+                if (selectedPayMethod === "card") {
                     if (cardFields) cardFields.classList.remove('hidden');
                     if (speiInfo) speiInfo.classList.add('hidden');
-                } else if (method === "spei") {
+                    cardInputs.forEach(input => input.setAttribute('required', 'required'));
+                    if (btnPay100) {
+                        btnPay100.innerHTML = `
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            <span>Pagar $100 MXN y Acceder de Inmediato</span>
+                        `;
+                    }
+                } else if (selectedPayMethod === "spei") {
                     if (cardFields) cardFields.classList.add('hidden');
                     if (speiInfo) speiInfo.classList.remove('hidden');
+                    cardInputs.forEach(input => input.removeAttribute('required'));
+                    if (btnPay100) {
+                        btnPay100.innerHTML = `
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            <span>Ya Transferí: Notificar al Dr. por WhatsApp</span>
+                        `;
+                    }
                 } else {
                     if (cardFields) cardFields.classList.remove('hidden');
                     if (speiInfo) speiInfo.classList.add('hidden');
+                    cardInputs.forEach(input => input.setAttribute('required', 'required'));
+                    if (btnPay100) {
+                        btnPay100.innerHTML = `
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            <span>Pagar $100 MXN</span>
+                        `;
+                    }
                 }
                 lucide.createIcons();
             });
         });
+
+        // Copy CLABE Function
+        window.copyClabe = function() {
+            const clabe = "722969010777399615";
+            const textSpan = document.getElementById('copy-clabe-text');
+            const updateUI = () => {
+                if (textSpan) {
+                    textSpan.textContent = "¡CLABE Copiada!";
+                    setTimeout(() => { textSpan.textContent = "Copiar CLABE"; }, 2500);
+                }
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(clabe).then(updateUI).catch(() => {
+                    const temp = document.createElement('input');
+                    temp.value = clabe;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(temp);
+                    updateUI();
+                });
+            } else {
+                const temp = document.createElement('input');
+                temp.value = clabe;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand('copy');
+                document.body.removeChild(temp);
+                updateUI();
+            }
+        };
 
         // Format card input
         const cardNumInput = document.getElementById('pay-card-num');
@@ -1940,12 +2031,14 @@
                 const patientPhone = document.getElementById('pay-whatsapp')?.value || "";
 
                 btnPay100.disabled = true;
+                const isSpei = selectedPayMethod === "spei";
+
                 btnPay100.innerHTML = `
                     <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <span>Validando pago seguro de 100 MXN...</span>
+                    <span>${isSpei ? 'Conectando con WhatsApp del Dr. Israel...' : 'Validando pago seguro de 100 MXN...'}</span>
                 `;
 
                 setTimeout(() => {
@@ -1958,12 +2051,20 @@
                         unlockedVideoPlayer.play().catch(() => {});
                     }
 
+                    const waText = isSpei 
+                        ? encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, he realizado la transferencia SPEI de $100 MXN a su cuenta de Mercado Pago por el protocolo de "${currentVideoTitle}".\n\n• Paciente: ${patientName}\n• WhatsApp: ${patientPhone}\n\nAdjunto aquí mi comprobante de transferencia para recibir mi receta y seguimiento.`)
+                        : encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, he realizado el pago de 100 MXN en UROMED por el video y tratamiento para "${currentVideoTitle}". Mi nombre es ${patientName} (Tel: ${patientPhone}). Solicito mi receta y protocolo clínico.`);
+
                     if (btnWhatsappTreatment) {
-                        const waText = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, he realizado el pago de 100 MXN en UROMED por el video y tratamiento para "${currentVideoTitle}". Mi nombre es ${patientName} (Tel: ${patientPhone}). Solicito mi receta y protocolo clínico.`);
                         btnWhatsappTreatment.href = `https://wa.me/523511502304?text=${waText}`;
                     }
+
+                    if (isSpei) {
+                        window.open(`https://wa.me/523511502304?text=${waText}`, '_blank');
+                    }
+
                     lucide.createIcons();
-                }, 1100);
+                }, 900);
             });
         }
     </script>
