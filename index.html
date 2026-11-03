@@ -1650,6 +1650,75 @@
         </div>
     </div>
 
+    <!-- ================= 11. MODAL VIP META ADS: CAPTURA & DERIVACIÓN AD-HOC ================= -->
+    <div id="meta-lead-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <!-- Backdrop Blur Overlay -->
+        <div id="meta-modal-backdrop" class="fixed inset-0 bg-[#070d19]/85 backdrop-blur-md transition-opacity"></div>
+
+        <!-- Modal Box -->
+        <div id="meta-modal-box" class="relative w-full max-w-lg bg-white rounded-3xl border border-stone-300 shadow-2xl z-10 my-8 overflow-hidden transform scale-95 transition-transform duration-300">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-[#0c1527] via-[#111c33] to-[#0c1527] text-white p-5 sm:p-6 flex justify-between items-center border-b border-[#ac2428]/40">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-[#e87377] block">Atención Prioritaria • UROMED Zamora</span>
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mt-0.5">Dr. Israel Jiménez Heredia</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Especialista en Urología Avanzada y Salud Masculina</p>
+                </div>
+                <button type="button" id="close-meta-modal" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Form Body -->
+            <div class="p-6 sm:p-7 space-y-4">
+                <div class="bg-[#fdf2f2] border-l-4 border-[#ac2428] p-3.5 rounded-r-xl text-xs text-slate-800">
+                    <strong>Bienvenido.</strong> Completa tus datos para recibir atención personalizada y desbloquear tu protocolo clínico correspondiente.
+                </div>
+
+                <form id="meta-lead-form" class="space-y-4 text-xs sm:text-sm">
+                    <!-- Nombre Completo -->
+                    <div>
+                        <label class="block font-bold text-slate-800 mb-1">Nombre Completo <span class="text-[#ac2428]">*</span></label>
+                        <input type="text" id="meta-input-name" required placeholder="Ej. Roberto González" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none text-slate-900 bg-white transition">
+                    </div>
+
+                    <!-- Teléfono / WhatsApp -->
+                    <div>
+                        <label class="block font-bold text-slate-800 mb-1">Número de WhatsApp o Teléfono <span class="text-[#ac2428]">*</span></label>
+                        <input type="tel" id="meta-input-phone" required placeholder="Ej. 351 150 2304" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none text-slate-900 bg-white transition">
+                    </div>
+
+                    <!-- Correo (Opcional) -->
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Correo Electrónico <span class="text-slate-400 font-normal">(Opcional para enviarte la guía)</span></label>
+                        <input type="email" id="meta-input-email" placeholder="ejemplo@correo.com" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none text-slate-900 bg-white transition">
+                    </div>
+
+                    <!-- Motivo Desplegable -->
+                    <div>
+                        <label class="block font-bold text-slate-800 mb-1">Motivo de tu Consulta <span class="text-[#ac2428]">*</span></label>
+                        <select id="meta-input-reason" required class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none text-slate-900 bg-white font-medium transition cursor-pointer">
+                            <option value="fertilidad">Guía de la Fertilidad Masculina ($100 MXN)</option>
+                            <option value="ereccion">Falla de Erección (Salud Andrológica VIP)</option>
+                            <option value="energia">Falta de Energía / Balance Hormonal</option>
+                            <option value="vph">VPH (Diagnóstico y Retiro Láser en 15 min)</option>
+                            <option value="calculos">Cálculos Renales (Láser Flexible)</option>
+                            <option value="prostata">Chequeo Prostático 40+ y HoLEP</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="btn-submit-lead" class="w-full mt-2 py-3.5 bg-[#ac2428] hover:bg-[#c22d32] text-white font-bold rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 text-sm btn-shimmer-uromed">
+                        <span>Continuar a mi Protocolo</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+
+                    <p class="text-xs text-center text-slate-500">100% Confidencialidad Médica • Dr. Israel Jiménez Heredia</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- ================= JAVASCRIPT LOGIC (APPLE-GRADE INTERACTION & ANIMATION) ================= -->
     <script>
         // Initialize Lucide Icons
@@ -2102,6 +2171,152 @@
 
                     lucide.createIcons();
                 }, 900);
+            });
+        }
+
+        // 7. Meta Ads Lead Capture Funnel & Ad-Hoc Redirection
+        const metaLeadModal = document.getElementById('meta-lead-modal');
+        const metaModalBackdrop = document.getElementById('meta-modal-backdrop');
+        const metaModalBox = document.getElementById('meta-modal-box');
+        const closeMetaModalBtn = document.getElementById('close-meta-modal');
+        const metaLeadForm = document.getElementById('meta-lead-form');
+
+        const openMetaLeadModal = () => {
+            if (!metaLeadModal) return;
+            if (typeof dismissSplash === 'function') dismissSplash();
+            metaLeadModal.classList.remove('hidden');
+            setTimeout(() => {
+                metaLeadModal.classList.remove('opacity-0');
+                if (metaModalBox) {
+                    metaModalBox.classList.remove('scale-95');
+                    metaModalBox.classList.add('scale-100');
+                }
+            }, 10);
+            document.body.style.overflow = "hidden";
+            lucide.createIcons();
+        };
+
+        const closeMetaLeadModal = () => {
+            if (!metaLeadModal) return;
+            metaLeadModal.classList.add('opacity-0');
+            if (metaModalBox) {
+                metaModalBox.classList.remove('scale-100');
+                metaModalBox.classList.add('scale-95');
+            }
+            setTimeout(() => {
+                metaLeadModal.classList.add('hidden');
+                document.body.style.overflow = "";
+            }, 300);
+        };
+
+        if (closeMetaModalBtn) closeMetaModalBtn.addEventListener('click', closeMetaLeadModal);
+        if (metaModalBackdrop) metaModalBackdrop.addEventListener('click', closeMetaLeadModal);
+
+        // Check URL parameters for Campaign Trigger: ?promo=1, ?utm_source=meta_ads, ?campaign=...
+        const pageUrlParams = new URLSearchParams(window.location.search);
+        const isFromPromo = pageUrlParams.has('promo') || 
+                            pageUrlParams.get('utm_source') === 'meta_ads' || 
+                            pageUrlParams.get('utm_source') === 'facebook' || 
+                            pageUrlParams.get('utm_source') === 'instagram' ||
+                            pageUrlParams.has('campaign') ||
+                            pageUrlParams.has('lead');
+
+        if (isFromPromo) {
+            setTimeout(openMetaLeadModal, 350);
+        }
+
+        // Direct shortcut to Fertility Guide if URL has ?open_guide=fertilidad
+        if (pageUrlParams.get('open_guide') === 'fertilidad') {
+            if (typeof dismissSplash === 'function') dismissSplash();
+            setTimeout(() => {
+                const solutionsSec = document.getElementById('solutions');
+                if (solutionsSec) solutionsSec.scrollIntoView({ behavior: 'smooth' });
+                if (window.openVideoPaymentModal) {
+                    window.openVideoPaymentModal('Guía Digital: Fertilidad Masculina Paso a Paso', 'videos/hospital-video-israel.mp4');
+                }
+            }, 500);
+        }
+
+        // Handle Lead Form Submission
+        if (metaLeadForm) {
+            metaLeadForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const leadName = document.getElementById('meta-input-name')?.value || "Paciente";
+                const leadPhone = document.getElementById('meta-input-phone')?.value || "";
+                const leadEmail = document.getElementById('meta-input-email')?.value || "No proporcionado";
+                const reasonSelect = document.getElementById('meta-input-reason');
+                const reasonCode = reasonSelect ? reasonSelect.value : "general";
+                const reasonLabel = reasonSelect ? reasonSelect.options[reasonSelect.selectedIndex].text : "Consulta General";
+
+                // 1. Google Sheets sync in real-time
+                sendToGoogleSheet({
+                    nombre: leadName,
+                    telefono: leadPhone,
+                    metodo: "Meta Ads Formulario Emergente",
+                    servicio: reasonLabel + (leadEmail !== 'No proporcionado' ? ` | Email: ${leadEmail}` : ''),
+                    notas: "Prospecto calificado desde campaña de Meta Ads",
+                    estado: "Lead Calificado",
+                    monto: reasonCode === 'fertilidad' ? "$100.00 MXN (Guía)" : "$0.00 MXN (Lead Consulta)"
+                });
+
+                // 2. Fire Meta Pixel Lead Conversion Event
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: reasonLabel,
+                        content_category: 'Meta Ads Lead Form',
+                        value: reasonCode === 'fertilidad' ? 100.00 : 0.00,
+                        currency: 'MXN'
+                    });
+                }
+
+                // 3. Close the Lead Modal
+                closeMetaLeadModal();
+
+                // 4. Ad-Hoc Routing based on user reason:
+                if (reasonCode === 'fertilidad') {
+                    // Pre-fill payment fields
+                    const payNameInput = document.getElementById('pay-name');
+                    const payPhoneInput = document.getElementById('pay-whatsapp');
+                    if (payNameInput) payNameInput.value = leadName;
+                    if (payPhoneInput) payPhoneInput.value = leadPhone;
+
+                    // Smooth scroll to solutions and open payment modal
+                    setTimeout(() => {
+                        const solutionsSec = document.getElementById('solutions');
+                        if (solutionsSec) solutionsSec.scrollIntoView({ behavior: 'smooth' });
+                        if (window.openVideoPaymentModal) {
+                            window.openVideoPaymentModal('Guía Digital: Fertilidad Masculina Paso a Paso', 'videos/hospital-video-israel.mp4');
+                        }
+                    }, 350);
+                } else if (reasonCode === 'ereccion') {
+                    setTimeout(() => {
+                        const servicesSec = document.getElementById('services');
+                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
+                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por el tema de Falla de Erección (Salud Andrológica).\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nQuisiera agendar una valoración médica confidencial.`);
+                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
+                    }, 350);
+                } else if (reasonCode === 'energia') {
+                    setTimeout(() => {
+                        const servicesSec = document.getElementById('services');
+                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
+                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por Falta de Energía y Balance Hormonal.\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nQuisiera información sobre el perfil de testosterona y consulta.`);
+                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
+                    }, 350);
+                } else if (reasonCode === 'vph') {
+                    setTimeout(() => {
+                        const servicesSec = document.getElementById('services');
+                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
+                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por valoración y retiro láser de VPH.\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nSolicito atención prioritaria en Zamora.`);
+                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
+                    }, 350);
+                } else {
+                    setTimeout(() => {
+                        const servicesSec = document.getElementById('services');
+                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
+                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por motivo de "${reasonLabel}".\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nQuisiera agendar una consulta en Zamora.`);
+                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
+                    }, 350);
+                }
             });
         }
     </script>
