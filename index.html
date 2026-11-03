@@ -1828,6 +1828,21 @@
             }
         } catch(e){}
 
+        // Google Sheets Integration Webhook (Pacientes UROMED)
+        const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwWfrnw35n1DGzO7pArjDtU83Pmi6A_vFiOQYCV6FRe0TYM7YFtAw0QvfgFJzTABpbL/exec";
+        function sendToGoogleSheet(payload) {
+            try {
+                fetch(GOOGLE_SHEET_WEBHOOK, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                }).catch(err => console.warn("Google Sheet sync notice:", err));
+            } catch (e) {
+                console.warn("Google Sheet sync error:", e);
+            }
+        }
+
         // 5. Appointment Form Submit
         const appointmentForm = document.getElementById('appointment-form');
         const bookingSuccess = document.getElementById('booking-success');
@@ -1843,6 +1858,17 @@
                 if (bookingSuccess) {
                     bookingSuccess.classList.remove('hidden');
                 }
+
+                // Send lead to Google Sheets in real-time
+                sendToGoogleSheet({
+                    nombre: name || "Anónimo",
+                    telefono: phone || "",
+                    tipo: "Cita Médica VIP",
+                    servicio: service || "Consulta General",
+                    notas: `Fecha preferente: ${date || 'No especificada'}. Notas: ${notes || 'Ninguna'}`,
+                    estado: "Solicitud Nueva",
+                    monto: "Por Determinar"
+                });
 
                 // WhatsApp redirection
                 const msg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, deseo agendar una consulta VIP en UROMED.\n\n• Paciente: ${name}\n• Teléfono: ${phone}\n• Servicio: ${service}\n• Fecha preferente: ${date}\n• Notas: ${notes || 'Ninguna'}`);
@@ -2032,6 +2058,17 @@
 
                 btnPay100.disabled = true;
                 const isSpei = selectedPayMethod === "spei";
+
+                // Log payment to Google Sheets in real-time
+                sendToGoogleSheet({
+                    nombre: patientName,
+                    telefono: patientPhone,
+                    tipo: isSpei ? "Pago SPEI $100 MXN" : "Pago Tarjeta $100 MXN",
+                    servicio: currentVideoTitle,
+                    notas: isSpei ? "Comprobante enviado por WhatsApp al doctor" : "Pago con tarjeta registrado",
+                    estado: isSpei ? "Transferencia Notificada" : "Acceso Desbloqueado",
+                    monto: "$100.00 MXN"
+                });
 
                 btnPay100.innerHTML = `
                     <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
