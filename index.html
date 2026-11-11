@@ -517,6 +517,9 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- UROMED Analytics & Conversion Tracking (GA4 & Privacy Compliant Events) -->
+    <script src="/uromed-analytics.js" defer></script>
+
     <!-- Schema.org Medical & Local SEO JSON-LD (@graph) -->
     <script type="application/ld+json">
     {
@@ -716,10 +719,10 @@
                             <i data-lucide="phone" class="w-3 h-3 text-[#ac2428]"></i>
                             <span>Llamar</span>
                         </a>
-                        <a href="https://wa.me/523511502304?text=hola%20vengo%20del%20website%2C%20quisiera%20mas%20informacion%20de..." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-2 px-3 py-1.5 lg:px-6 lg:py-3 bg-[#ac2428] hover:bg-[#c22d32] text-white rounded-lg lg:rounded-xl text-[11px] sm:text-xs lg:text-sm font-bold shadow-md lg:shadow-[0_4px_18px_rgba(172,36,40,0.32)] btn-shimmer-uromed active:scale-95 transition">
+                        <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20consulta%20urol%C3%B3gica" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-2 px-3 py-1.5 lg:px-6 lg:py-3 bg-[#ac2428] hover:bg-[#c22d32] text-white rounded-lg lg:rounded-xl text-[11px] sm:text-xs lg:text-sm font-bold shadow-md lg:shadow-[0_4px_18px_rgba(172,36,40,0.32)] btn-shimmer-uromed active:scale-95 transition" data-analytics-event="whatsapp_click" data-analytics-location="header">
                             <i data-lucide="message-circle" class="w-3 h-3 lg:w-4 lg:h-4"></i>
-                            <span class="lg:hidden">Cita VIP</span>
-                            <span class="hidden lg:inline">Agendar Cita VIP</span>
+                            <span class="lg:hidden">Consulta</span>
+                            <span class="hidden lg:inline">Agenda tu consulta</span>
                         </a>
                     </div>
 
@@ -782,7 +785,9 @@
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#07121b]">
             <img 
                 src="hero_clean_bluegray.jpg" 
-                alt="Dr. Israel Jimenez Heredia - Especialista en Urología Avanzada UROMED" 
+                alt="Dr. Israel Jimenez Heredia - Urólogo en Zamora UROMED" 
+                fetchpriority="high"
+                decoding="async"
                 class="w-full h-full object-cover object-[72%_center] sm:object-center scale-100 filter brightness-[1.0] contrast-[1.02] transition-all duration-700"
             >
             <!-- Apple-Grade Directional Readability Gradient (Stronger on mobile to make text 100% legible over the doctor's studio backdrop) -->
@@ -814,18 +819,18 @@
                         </span>
                     </h2>
 
-                    <!-- Subtítulo alargado y cómodo para leer -->
+                    <!-- Subtítulo SEO y Clínico -->
                     <p class="text-sm sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0 drop-shadow">
-                        Especialista en cirugía endourológica y oncológica, ofreciendo tratamientos quirúrgicos de vanguardia como la Enucleación Prostática con Láser (HoLEP), fragmentación de cálculos urinarios y microcirugía reproductiva. Con un enfoque preventivo y de educación médica continua, complementamos nuestra atención clínica presencial con una biblioteca de guías digitales especializadas, diseñadas para dotar a los pacientes de información rigurosa y herramientas prácticas para el cuidado integral de la salud masculina.
+                        Atención urológica especializada, cirugía láser y procedimientos de mínima invasión. Más de 2,500 intervenciones quirúrgicas realizadas por el Dr. Israel Jiménez Heredia en Zamora y La Piedad, Michoacán.
                     </p>
 
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
-                        <a href="#scheduling" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm sm:text-base font-bold tracking-wide rounded-xl shadow-[0_10px_35px_rgba(172,36,40,0.55)] transition duration-200 btn-shimmer-uromed flex items-center justify-center gap-2">
+                        <a href="#scheduling" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm sm:text-base font-bold tracking-wide rounded-xl shadow-[0_10px_35px_rgba(172,36,40,0.55)] transition duration-200 btn-shimmer-uromed flex items-center justify-center gap-2" data-analytics-event="cta_click" data-analytics-label="Agenda tu consulta">
                             <i data-lucide="calendar-check" class="w-5 h-5"></i>
-                            <span>Agendar Consulta Especializada</span>
+                            <span>Agenda tu consulta</span>
                         </a>
-                        <a href="#services" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white text-sm sm:text-base font-bold tracking-wide rounded-xl transition duration-200 shadow-sm flex items-center justify-center gap-2 backdrop-blur-md">
-                            <span>Ver Procedimientos Quirúrgicos</span>
+                        <a href="#services" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white text-sm sm:text-base font-bold tracking-wide rounded-xl transition duration-200 shadow-sm flex items-center justify-center gap-2 backdrop-blur-md" data-analytics-event="cta_click" data-analytics-label="Conoce nuestros tratamientos">
+                            <span>Conoce nuestros tratamientos</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 text-[#ff8084]"></i>
                         </a>
                     </div>
@@ -837,8 +842,8 @@
                                 <i data-lucide="check-circle-2" class="w-6 h-6 sm:w-7 sm:h-7 text-[#ff8084]"></i>
                             </div>
                             <div>
-                                <div class="font-elegant text-2xl sm:text-4xl font-bold text-white leading-none">+2,800</div>
-                                <div class="text-xs sm:text-sm font-semibold text-slate-300 mt-1">Cirugías de Alta Precisión</div>
+                                <div class="font-elegant text-2xl sm:text-4xl font-bold text-white leading-none">+2,500</div>
+                                <div class="text-xs sm:text-sm font-semibold text-slate-300 mt-1">Cirugías Realizadas</div>
                             </div>
                         </div>
 
@@ -1057,6 +1062,8 @@
                         <img 
                             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" 
                             alt="Medical Video Tips" 
+                            loading="lazy"
+                            decoding="async"
                             class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500"
                         >
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0c1527] via-[#0c1527]/60 to-transparent"></div>
@@ -1095,6 +1102,8 @@
                         <img 
                             src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" 
                             alt="Litiasis Renal Laser" 
+                            loading="lazy"
+                            decoding="async"
                             class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500"
                         >
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0c1527] via-[#0c1527]/60 to-transparent"></div>
@@ -1220,7 +1229,9 @@
                     <div class="relative w-64 sm:w-80 h-[380px] sm:h-[460px] overflow-hidden rounded-3xl luxury-image-glow border border-stone-200/60 bg-white/30 p-2">
                         <img 
                             src="imagenes editadas ISRAEL UROLOGO (8).png" 
-                            alt="Dr. Israel Jiménez Heredia - Traje Formal" 
+                            alt="Dr. Israel Jiménez Heredia - Urólogo en Zamora" 
+                            loading="lazy"
+                            decoding="async"
                             class="w-full h-full object-cover object-top blend-image-profile transition duration-700 hover:scale-105"
                         >
                     </div>
@@ -1285,7 +1296,7 @@
                 <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-stone-200/80 transition duration-500 flex flex-col justify-between group hover:border-[#ac2428]/40 apple-card apple-reveal delay-100">
                     <div>
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Salud Prostática" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Salud Prostática Zamora" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             <span class="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#0c1527]/90 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-wider">Prevención 40+</span>
                         </div>
                         <div class="p-7">
@@ -1315,7 +1326,7 @@
                 <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-stone-200/80 transition duration-500 flex flex-col justify-between group hover:border-[#ac2428]/40 apple-card apple-reveal delay-200">
                     <div>
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80" alt="Fertilidad Masculina" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80" alt="Fertilidad Masculina Zamora" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             <span class="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#ac2428] backdrop-blur-sm text-white text-xs font-bold uppercase tracking-wider">Andrología</span>
                         </div>
                         <div class="p-7">
@@ -1345,7 +1356,7 @@
                 <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-stone-200/80 transition duration-500 flex flex-col justify-between group hover:border-[#ac2428]/40 apple-card apple-reveal delay-300">
                     <div>
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80" alt="Litiasis Renal Laser" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80" alt="Litiasis Renal Láser Zamora" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             <span class="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#0c1527] text-white text-xs font-bold uppercase tracking-wider border border-[#ac2428]/40">Láser Holmium</span>
                         </div>
                         <div class="p-7">
@@ -1661,18 +1672,20 @@
 
     <!-- ================= 9. FLOATING MINI SCHEDULING BUTTON ================= -->
     <a 
-        href="https://wa.me/523511502304?text=hola%20vengo%20del%20website%2C%20quisiera%20mas%20informacion%20de..." 
+        href="https://wa.me/523511502304?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20consulta%20urol%C3%B3gica" 
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Agendar Cita VIP"
+        aria-label="Agenda tu consulta"
         class="fixed bottom-4 right-3.5 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2 sm:gap-3 px-3.5 py-3 sm:px-6 sm:py-4 rounded-full bg-[#ac2428] hover:bg-[#c22d32] text-white font-bold text-xs sm:text-base shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white/90 group btn-shimmer-uromed"
+        data-analytics-event="whatsapp_click"
+        data-analytics-location="floating_button"
     >
         <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
             <span class="animate-pulse absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-white"></span>
         </span>
         <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-        <span>Agendar Cita VIP</span>
+        <span>Agenda tu consulta</span>
     </a>
 
     <!-- ================= 10. MODAL DE PAGO: 100 MXN PARA DARTE UN TRATAMIENTO CORRECTO ================= -->

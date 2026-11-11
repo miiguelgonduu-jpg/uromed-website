@@ -37,6 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anaheim&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/uromed-analytics.js" defer></script>
 
     <style>
         body {
@@ -174,9 +175,9 @@
                 </nav>
 
                 <div class="flex items-center gap-3">
-                    <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20informaci%C3%B3n%20sobre%20las%20ubicaciones%20de%20los%20consultorios" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ac2428] hover:bg-[#c22d32] text-white text-xs font-bold tracking-wider uppercase transition shadow-md">
+                    <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20consultar%20la%20disponibilidad%20y%20ubicaci%C3%B3n%20de%20consulta%20con%20el%20Dr.%20Israel" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ac2428] hover:bg-[#c22d32] text-white text-xs font-bold tracking-wider uppercase transition shadow-md" data-analytics-event="whatsapp_click" data-analytics-location="header">
                         <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>WhatsApp Citas</span>
+                        <span>Consultar ubicación</span>
                     </a>
                     <button id="mobile-toggle" aria-label="Menú" class="md:hidden p-2 text-slate-700 hover:text-[#ac2428]">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -193,7 +194,7 @@
                 <a href="/consulta-urologica/" class="block py-2 hover:text-[#ac2428]">Consulta Urológica</a>
                 <a href="/dr-israel-jimenez/" class="block py-2 hover:text-[#ac2428]">Dr. Israel Jiménez</a>
                 <a href="/ubicaciones/" class="block py-2 text-[#ac2428]">Ubicaciones</a>
-                <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20cita" class="block py-2.5 text-center bg-[#ac2428] text-white rounded-xl mt-2">Agendar por WhatsApp</a>
+                <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20consultar%20la%20disponibilidad%20y%20ubicaci%C3%B3n%20de%20consulta%20con%20el%20Dr.%20Israel" class="block py-2.5 text-center bg-[#ac2428] text-white rounded-xl mt-2">Consultar disponibilidad</a>
             </div>
         </div>
     </header>
@@ -216,17 +217,17 @@
                     <span>Instalaciones Clínicas UROMED</span>
                 </div>
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                    Ubicaciones y consultorios UROMED en Zamora y La Piedad
+                    Consulta urológica en Zamora y La Piedad
                 </h1>
                 <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-                    Conoce nuestras sedes médicas privadas en Zamora de Hidalgo y La Piedad, Michoacán. Espacios clínicos modernos, equipados para brindarte diagnósticos certeros y tratamientos urológicos de mínima invasión.
+                    Encuentra la ubicación de atención más conveniente: Aquiles Serdán Sur 93, Colón Oriente 320 o nuestra sucursal en La Piedad, Michoacán.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20cita%20y%20conocer%20la%20sede%20m%C3%A1s%20cercana" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer">
-                        <i data-lucide="calendar-check" class="w-5 h-5"></i>
-                        <span>Agendar Cita en mi Sede de Preferencia</span>
+                    <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20consultar%20la%20disponibilidad%20y%20ubicaci%C3%B3n%20de%20consulta%20con%20el%20Dr.%20Israel" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer" data-analytics-event="whatsapp_click" data-analytics-location="hero_cta">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        <span>Consultar ubicación y disponibilidad</span>
                     </a>
-                    <a href="tel:+523511502304" class="px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2">
+                    <a href="tel:+523511502304" class="px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2" data-analytics-event="phone_call_click" data-analytics-location="hero">
                         <i data-lucide="phone" class="w-5 h-5 text-[#ff8084]"></i>
                         <span>Llamar al +52 351 150 2304</span>
                     </a>
@@ -410,11 +411,11 @@
                 Comunícate directamente a nuestra línea de atención telefónica o vía WhatsApp para recibir asesoría sobre horarios y disponibilidad.
             </p>
             <div class="flex flex-wrap justify-center gap-4 pt-2">
-                <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20una%20cita%20presencial" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer">
-                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
-                    <span>Agendar Cita por WhatsApp</span>
+                <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20consultar%20la%20disponibilidad%20y%20ubicaci%C3%B3n%20de%20consulta%20con%20el%20Dr.%20Israel" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer" data-analytics-event="whatsapp_click" data-analytics-location="bottom_cta">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <span>Consultar ubicación y disponibilidad</span>
                 </a>
-                <a href="tel:+523511502304" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2">
+                <a href="tel:+523511502304" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2" data-analytics-event="phone_call_click" data-analytics-location="bottom">
                     <i data-lucide="phone" class="w-5 h-5 text-[#ff8084]"></i>
                     <span>Llamada Directa: +52 351 150 2304</span>
                 </a>

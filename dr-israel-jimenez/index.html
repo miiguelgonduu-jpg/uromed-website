@@ -37,6 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anaheim&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/uromed-analytics.js" defer></script>
 
     <style>
         body {
@@ -145,9 +146,9 @@
                 </nav>
 
                 <div class="flex items-center gap-3">
-                    <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20una%20consulta%20con%20usted" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ac2428] hover:bg-[#c22d32] text-white text-xs font-bold tracking-wider uppercase transition shadow-md">
+                    <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20consulta%20con%20el%20Dr.%20Israel%20Jim%C3%A9nez" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ac2428] hover:bg-[#c22d32] text-white text-xs font-bold tracking-wider uppercase transition shadow-md" data-analytics-event="whatsapp_click" data-analytics-location="header">
                         <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>WhatsApp Citas</span>
+                        <span>Agenda tu consulta</span>
                     </a>
                     <button id="mobile-toggle" aria-label="Menú" class="md:hidden p-2 text-slate-700 hover:text-[#ac2428]">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -164,7 +165,7 @@
                 <a href="/consulta-urologica/" class="block py-2 hover:text-[#ac2428]">Consulta Urológica</a>
                 <a href="/dr-israel-jimenez/" class="block py-2 text-[#ac2428]">Dr. Israel Jiménez</a>
                 <a href="/ubicaciones/" class="block py-2 hover:text-[#ac2428]">Ubicaciones</a>
-                <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20consulta" class="block py-2.5 text-center bg-[#ac2428] text-white rounded-xl mt-2">Agendar por WhatsApp</a>
+                <a href="/ubicaciones/" class="block py-2.5 text-center bg-[#ac2428] text-white rounded-xl mt-2">Conoce dónde consultar</a>
             </div>
         </div>
     </header>
@@ -188,26 +189,26 @@
                         <span>Director Médico UROMED • Certificado CMU</span>
                     </div>
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                        Dr. Israel Jiménez Heredia — Cirujano Urólogo en Zamora
+                        Dr. Israel Jiménez Heredia — Urólogo en Zamora
                     </h1>
                     <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-                        Especialista en urología avanzada, cirugía láser de próstata HoLEP, endourología para cálculos renales y microcirugía reproductiva. Con más de 2,500 intervenciones quirúrgicas exitosas, ofrece atención médica de élite y máxima seguridad clínica en Michoacán.
+                        Especialista en urología, cirugía láser y procedimientos de mínima invasión, con más de 2,500 intervenciones quirúrgicas realizadas.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20una%20consulta%20con%20usted" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer">
-                            <i data-lucide="calendar-check" class="w-5 h-5"></i>
-                            <span>Agendar Cita con el Dr. Israel</span>
+                        <a href="/ubicaciones/" class="px-7 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer" data-analytics-event="cta_click" data-analytics-label="Conoce dónde consultar">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            <span>Conoce dónde consultar</span>
                         </a>
-                        <a href="tel:+523511502304" class="px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2">
-                            <i data-lucide="phone" class="w-5 h-5 text-[#ff8084]"></i>
-                            <span>Llamada: +52 351 150 2304</span>
+                        <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20consulta%20con%20el%20Dr.%20Israel%20Jim%C3%A9nez" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2" data-analytics-event="whatsapp_click" data-analytics-location="hero">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-[#ff8084]"></i>
+                            <span>WhatsApp Directo</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="lg:col-span-4 flex justify-center">
                     <div class="relative w-64 sm:w-72 h-80 sm:h-96 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-white/10 p-2">
-                        <img src="/imagenes editadas ISRAEL UROLOGO (8).png" alt="Dr. Israel Jiménez Heredia" class="w-full h-full object-cover object-top rounded-2xl">
+                        <img src="/imagenes editadas ISRAEL UROLOGO (8).png" alt="Dr. Israel Jiménez Heredia - Urólogo en Zamora" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-top rounded-2xl">
                     </div>
                 </div>
             </div>
@@ -340,13 +341,13 @@
                 Atención en consultorios médicos de Zamora (Aquiles Serdán Sur 93 y Colón Ote. 320) y sucursal en La Piedad, Michoacán.
             </p>
             <div class="flex flex-wrap justify-center gap-4 pt-2">
-                <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20una%20cita%20con%20usted" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer">
-                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
-                    <span>Agendar Cita por WhatsApp</span>
+                <a href="/ubicaciones/" class="px-8 py-4 rounded-xl bg-[#ac2428] hover:bg-[#c22d32] text-white text-sm font-bold tracking-wide transition shadow-lg inline-flex items-center gap-2 btn-shimmer" data-analytics-event="cta_click" data-analytics-label="Conoce dónde consultar">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <span>Conoce dónde consultar</span>
                 </a>
-                <a href="tel:+523511502304" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2">
-                    <i data-lucide="phone" class="w-5 h-5 text-[#ff8084]"></i>
-                    <span>Llamada: +52 351 150 2304</span>
+                <a href="https://wa.me/523511502304?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20consulta%20con%20el%20Dr.%20Israel%20Jim%C3%A9nez" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold transition inline-flex items-center gap-2" data-analytics-event="whatsapp_click" data-analytics-location="bottom_cta">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-[#ff8084]"></i>
+                    <span>WhatsApp Directo</span>
                 </a>
             </div>
         </section>
