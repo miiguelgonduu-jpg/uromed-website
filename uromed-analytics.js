@@ -73,7 +73,6 @@
         if (lower.includes('calculo') || lower.includes('piedra')) return 'calculos_renales';
         if (lower.includes('prostata')) return 'problemas_prostata';
         if (lower.includes('serdan')) return 'sede_serdan_zamora';
-        if (lower.includes('colon')) return 'sede_colon_zamora';
         if (lower.includes('piedad')) return 'sede_la_piedad';
         return 'consulta_general';
     }
@@ -111,7 +110,6 @@
         else if (href.includes('google.com/maps') || href.includes('maps.google.com')) {
             let locationName = 'desconocida';
             if (href.includes('Aquiles') || href.includes('Serd')) locationName = 'consultorio_serdan_zamora';
-            else if (href.includes('Col') || href.includes('320')) locationName = 'consultorio_colon_zamora';
             else if (href.includes('Piedad')) locationName = 'sucursal_la_piedad';
 
             window.trackUromedEvent('location_interaction', {

@@ -540,7 +540,6 @@
           "medicalSpecialty": "https://schema.org/Urology",
           "department": [
             { "@id": "https://consultoriosuromed.com/#clinic-aquiles-serdan" },
-            { "@id": "https://consultoriosuromed.com/#clinic-colon-oriente" },
             { "@id": "https://consultoriosuromed.com/#clinic-la-piedad" }
           ]
         },
@@ -570,23 +569,6 @@
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Aquiles Serdán Sur 93",
-            "addressLocality": "Zamora",
-            "addressRegion": "Michoacán",
-            "addressCountry": "MX"
-          }
-        },
-        {
-          "@type": "MedicalClinic",
-          "@id": "https://consultoriosuromed.com/#clinic-colon-oriente",
-          "name": "UROMED - Sede Colón Oriente",
-          "parentOrganization": {
-            "@id": "https://consultoriosuromed.com/#organization"
-          },
-          "telephone": "+523511502304",
-          "medicalSpecialty": "https://schema.org/Urology",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Colón Oriente 320",
             "addressLocality": "Zamora",
             "addressRegion": "Michoacán",
             "addressCountry": "MX"
@@ -1402,7 +1384,7 @@
             </div>
 
             <!-- Locations Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-8 mb-12">
                 <!-- Sede 1: Aquiles Serdán Sur -->
                 <div class="bg-[#faf8f5] rounded-3xl p-8 border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-[#ac2428]/40 apple-card apple-reveal">
                     <div>
@@ -1431,36 +1413,8 @@
                     </div>
                 </div>
 
-                <!-- Sede 2: Colón Oriente -->
+                <!-- Sede 2: La Piedad -->
                 <div class="bg-[#faf8f5] rounded-3xl p-8 border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-[#ac2428]/40 apple-card apple-reveal delay-100">
-                    <div>
-                        <div class="w-12 h-12 rounded-2xl bg-[#fdf2f2] text-[#ac2428] flex items-center justify-center mb-6 border border-[#ac2428]/20 group-hover:bg-[#ac2428] group-hover:text-white transition">
-                            <i data-lucide="activity" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xs uppercase font-bold tracking-wider text-[#ac2428]">Zamora Oriente</span>
-                        <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Consultorio Colón</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed font-normal mb-4">
-                            Instalaciones equipadas para estudios diagnósticos, ultrasonido urológico y valoración prequirúrgica.
-                        </p>
-                        <div class="flex items-start gap-2.5 text-sm text-slate-700 font-medium mb-6">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-[#ac2428] shrink-0 mt-0.5"></i>
-                            <span>Colón Oriente 320, Zamora, Michoacán, México.</span>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-stone-200 space-y-3">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Col%C3%B3n+Oriente+320,+Zamora,+Michoac%C3%A1n" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white border border-stone-300 text-xs sm:text-sm font-bold text-slate-800 hover:border-[#ac2428] hover:text-[#ac2428] transition shadow-sm">
-                            <i data-lucide="map" class="w-4 h-4 text-[#ac2428]"></i>
-                            <span>Abrir en Google Maps</span>
-                        </a>
-                        <a href="https://wa.me/523511502304?text=Hola%20Dr.%20Israel%2C%20quisiera%20agendar%20consulta%20en%20sede%20Col%C3%B3n%20Oriente%20320" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0c1527] hover:bg-[#ac2428] text-xs sm:text-sm font-bold text-white transition shadow-sm">
-                            <i data-lucide="calendar" class="w-4 h-4"></i>
-                            <span>Agendar en esta sede</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Sede 3: La Piedad -->
-                <div class="bg-[#faf8f5] rounded-3xl p-8 border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-[#ac2428]/40 apple-card apple-reveal delay-200">
                     <div>
                         <div class="w-12 h-12 rounded-2xl bg-[#fdf2f2] text-[#ac2428] flex items-center justify-center mb-6 border border-[#ac2428]/20 group-hover:bg-[#ac2428] group-hover:text-white transition">
                             <i data-lucide="hospital" class="w-6 h-6"></i>
@@ -1535,7 +1489,6 @@
                                     <p class="font-bold text-white">Sedes Confirmadas UROMED</p>
                                     <p class="text-slate-300 text-sm mt-0.5">
                                         • Aquiles Serdán Sur 93, Zamora, Mich.<br>
-                                        • Colón Oriente 320, Zamora, Mich.<br>
                                         • Sucursal La Piedad, Mich. (confirmada al agendar)
                                     </p>
                                 </div>
@@ -1651,7 +1604,7 @@
             </div>
             <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 text-center md:text-left">
                 <p>© 2026 UROMED — Dr. Israel Jiménez Heredia. Urólogo en Zamora y La Piedad, Michoacán. Todos los derechos reservados.</p>
-                <p>Sedes Zamora: Aquiles Serdán Sur 93 y Colón Oriente 320 • Sucursal La Piedad • Tel: +52 351 150 2304</p>
+                <p>Sede Zamora: Aquiles Serdán Sur 93 • Sucursal La Piedad • Tel: +52 351 150 2304</p>
             </div>
             <div class="pt-3 text-[11px] text-slate-500 text-center">
                 Atención regional para pacientes de Zamora, Jacona, Tangancícuaro, Chavinda, Ecuandureo, La Piedad y la Ciénega de Michoacán.
