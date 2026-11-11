@@ -1,0 +1,9 @@
+# Local scratch and backup folders
+check_uromed.js
+temp_check.js
+uromed-live-index.html
+Historial_Y_Planes/
+isra-website/
+new-isra-website/
+UROMED-DESPLIEGUE/
+.DS_Store
