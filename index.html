@@ -1897,9 +1897,19 @@
             }
         } catch(e){}
 
+        // =========================================================================
+        // NIGHT SECURITY LOCK (CANDADO NOCTURNO ANTI-SPAM, ANTI-COOKIES Y ANTI-BOTS)
+        // Para desactivar por la mañana: cambiar NIGHT_SECURITY_LOCK a false.
+        // =========================================================================
+        const NIGHT_SECURITY_LOCK = true;
+
         // Google Sheets Integration Webhook (Pacientes UROMED)
         const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwWfrnw35n1DGzO7pArjDtU83Pmi6A_vFiOQYCV6FRe0TYM7YFtAw0QvfgFJzTABpbL/exec";
         function sendToGoogleSheet(payload) {
+            if (NIGHT_SECURITY_LOCK) {
+                console.info("🔒 Modo Nocturno de Seguridad Activo: Envío a base de datos pausado preventivamente.");
+                return;
+            }
             try {
                 fetch(GOOGLE_SHEET_WEBHOOK, {
                     method: "POST",
@@ -1918,6 +1928,10 @@
         if (appointmentForm) {
             appointmentForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                if (NIGHT_SECURITY_LOCK) {
+                    window.open('https://wa.me/523511502304?text=Hola%20Dr.%20Israel%20Jimenez%20Heredia,%20deseo%20agendar%20una%20consulta%20VIP%20en%20UROMED%20Zamora.', '_blank');
+                    return;
+                }
                 const name = document.getElementById('patient-name')?.value;
                 const phone = document.getElementById('patient-phone')?.value;
                 const service = document.getElementById('service-type')?.value;
@@ -2241,6 +2255,11 @@
         if (metaLeadForm) {
             metaLeadForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                if (NIGHT_SECURITY_LOCK) {
+                    closeMetaLeadModal();
+                    window.open('https://wa.me/523511502304?text=Hola%20Dr.%20Israel%20Jimenez%20Heredia,%20deseo%20atencion%20urologica%20prioritaria%20en%20UROMED%20Zamora.', '_blank');
+                    return;
+                }
                 const leadName = document.getElementById('meta-input-name')?.value || "Paciente";
                 const leadPhone = document.getElementById('meta-input-phone')?.value || "";
                 const leadEmail = document.getElementById('meta-input-email')?.value || "No proporcionado";
@@ -2318,6 +2337,73 @@
                     }, 350);
                 }
             });
+        }
+
+        // 8. Visual Candado Nocturno Anti-Spam / Anti-Bots
+        if (typeof NIGHT_SECURITY_LOCK !== 'undefined' && NIGHT_SECURITY_LOCK) {
+            // Candado en Formulario de Meta Ads
+            const metaForm = document.getElementById('meta-lead-form');
+            if (metaForm) {
+                const lockDiv = document.createElement('div');
+                lockDiv.className = "bg-amber-50 border border-amber-300 p-3.5 rounded-xl text-xs text-amber-950 flex items-start gap-2.5 my-2 shadow-sm";
+                lockDiv.innerHTML = `
+                    <span class="text-base">🔒</span>
+                    <div>
+                        <strong class="font-bold block text-amber-900">Protección de Datos Activa</strong>
+                        <span>Formulario pausado por resguardo nocturno de servidores. Para atención directa y confidencial sin capturar datos ni cookies, comunícate por WhatsApp con el Dr. Israel.</span>
+                    </div>
+                `;
+                metaForm.prepend(lockDiv);
+
+                ['meta-input-name', 'meta-input-phone', 'meta-input-email'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.readOnly = true;
+                        el.placeholder = "🔒 Registro protegido preventivamente";
+                        el.classList.add('bg-slate-100', 'cursor-not-allowed', 'text-slate-500');
+                        el.removeAttribute('required');
+                    }
+                });
+
+                const btnLead = document.getElementById('btn-submit-lead');
+                if (btnLead) {
+                    btnLead.innerHTML = `<span>🔒 Contactar por WhatsApp Directo</span>`;
+                    btnLead.classList.remove('bg-[#ac2428]', 'hover:bg-[#c22d32]');
+                    btnLead.classList.add('bg-emerald-700', 'hover:bg-emerald-800');
+                }
+            }
+
+            // Candado en Formulario de Citas
+            const appForm = document.getElementById('appointment-form');
+            if (appForm) {
+                const appLockDiv = document.createElement('div');
+                appLockDiv.className = "bg-amber-50 border border-amber-300 p-4 rounded-xl text-xs sm:text-sm text-amber-950 flex items-start gap-3 mb-4 shadow-sm";
+                appLockDiv.innerHTML = `
+                    <span class="text-lg">🔒</span>
+                    <div>
+                        <strong class="font-bold block text-amber-900">Candado Preventivo de Seguridad Activo</strong>
+                        <span>Por actualización y resguardo de servidores, el formulario en línea está pausado. Pulsa el botón inferior para agendar tu cita VIP directamente vía WhatsApp sin ingresar datos en la web.</span>
+                    </div>
+                `;
+                appForm.prepend(appLockDiv);
+
+                ['patient-name', 'patient-phone', 'appointment-date', 'patient-notes'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.readOnly = true;
+                        el.placeholder = "🔒 Registro protegido preventivamente";
+                        el.classList.add('bg-slate-100', 'cursor-not-allowed', 'text-slate-500');
+                        el.removeAttribute('required');
+                    }
+                });
+
+                const btnApp = appForm.querySelector('button[type="submit"]');
+                if (btnApp) {
+                    btnApp.innerHTML = `<span>🔒 Agendar Directamente por WhatsApp al Consultorio</span>`;
+                    btnApp.classList.remove('bg-[#ac2428]', 'hover:bg-[#c22d32]');
+                    btnApp.classList.add('bg-emerald-700', 'hover:bg-emerald-800');
+                }
+            }
         }
     </script>
 </body>
