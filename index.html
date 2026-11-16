@@ -1575,8 +1575,44 @@
                             <span>Confirmar Solicitud de Cita VIP</span>
                         </button>
 
-                        <div id="booking-success" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-950 text-sm sm:text-base font-medium"></div>
-                        <div id="booking-error" class="hidden p-5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-sm font-medium"></div>
+                        <div id="booking-success" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-950 text-sm sm:text-base font-medium">
+                            <div class="space-y-3 p-1">
+                                <div class="flex items-center gap-2 text-emerald-800 font-bold text-base sm:text-lg">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-sm">✓</span>
+                                    <span>¡Solicitud registrada y confirmada con éxito!</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+                                    Hemos recibido tus datos correctamente en el sistema de UROMED. El asistente del Dr. Israel Jiménez se comunicará contigo al <strong id="booking-success-phone"></strong> para confirmar tu horario.
+                                </p>
+                                <div class="pt-2">
+                                    <a id="booking-success-wa" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold transition shadow-sm">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                        <span>Abrir confirmación en WhatsApp (Opcional)</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="booking-error" class="hidden p-5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-sm font-medium">
+                            <div class="space-y-3 p-1">
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-amber-700 text-lg">⚠️</span>
+                                    <div>
+                                        <strong class="font-bold text-amber-950 block">No pudimos registrar tu cita automáticamente</strong>
+                                        <span class="text-xs sm:text-sm text-amber-900 block mt-1">Ocurrió un error temporal de conexión con el servidor. Para asegurar tu lugar sin demora, por favor envía tu solicitud directamente por WhatsApp:</span>
+                                    </div>
+                                </div>
+                                <div class="pt-1 flex flex-wrap gap-3">
+                                    <a id="booking-error-wa" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold transition shadow-md">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                        <span>Agendar directamente por WhatsApp</span>
+                                    </a>
+                                    <a href="tel:+523511502304" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-stone-300 text-slate-800 text-xs sm:text-sm font-bold hover:bg-stone-50 transition">
+                                        <i data-lucide="phone" class="w-4 h-4 text-[#ac2428]"></i>
+                                        <span>Llamar: +52 351 150 2304</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
 
@@ -1813,55 +1849,69 @@
                     <div class="pt-3">
                         <button type="submit" id="btn-pay-100" class="w-full py-4 bg-[#ac2428] hover:bg-[#c22d32] text-white font-bold text-base sm:text-lg rounded-xl shadow-[0_8px_25px_rgba(172,36,40,0.35)] transition duration-200 flex items-center justify-center gap-2 btn-shimmer-uromed">
                             <i data-lucide="shield-check" class="w-5 h-5"></i>
-                            <span>Pagar $100 MXN y Acceder de Inmediato</span>
+                            <span>Solicitar Acceso a la Guía ($100 MXN)</span>
                         </button>
                     </div>
 
                     <div class="flex items-center justify-center gap-2 text-xs text-slate-500 pt-1">
-                        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i>
-                        <span>Encriptación SSL 256-bit • Pago Seguro Procesado por Stripe</span>
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                        <span>Encriptación SSL 256-bit • Solicitud Directa y Validación Manual</span>
                     </div>
                 </form>
 
             </div>
 
-            <!-- State 2: Video Desbloqueado y Tratamiento Listo -->
+            <!-- State 2: Solicitud Registrada - Validación Manual -->
             <div id="modal-success-state" class="p-6 sm:p-8 hidden">
                 <div class="text-center mb-6">
-                    <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3 shadow">
-                        <i data-lucide="check-check" class="w-8 h-8"></i>
+                    <div class="w-14 h-14 rounded-full bg-amber-100 text-[#ac2428] flex items-center justify-center mx-auto mb-3 shadow">
+                        <i data-lucide="clock" class="w-8 h-8"></i>
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block">¡Pago de 100 MXN Aprobado!</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-[#ac2428] block">Solicitud Registrada — Validación Manual</span>
                     <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-0.5">
-                        Tu Contenido y Tratamiento Están Listos
+                        Envía tu Comprobante para Activar tu Acceso
                     </h3>
                     <p class="text-sm text-slate-600 mt-1.5 max-w-md mx-auto">
-                        Has desbloqueado el protocolo clínico completo del Dr. Israel Jimenez Heredia. Puedes reproducir la masterclass en video a continuación.
+                        Hemos registrado tu solicitud para la guía de salud urológica. Al ser un proceso seguro y transparente, el acceso al video clínico y tu orientación personalizada se activan en cuanto compartas tu comprobante de transferencia al WhatsApp de UROMED.
                     </p>
                 </div>
 
-                <!-- Video Player Container -->
-                <div class="relative rounded-2xl overflow-hidden bg-black shadow-2xl mb-6 border border-stone-300">
-                    <video id="unlocked-video-player" controls playsinline class="w-full max-h-[360px] object-contain mx-auto">
-                        <source id="unlocked-video-source" src="videos/hospital-video-israel.mp4" type="video/mp4">
-                        Tu navegador no soporta reproducción de video en HTML5.
-                    </video>
+                <!-- Pasos Claros de Activación Manual -->
+                <div class="bg-stone-50 rounded-2xl p-5 border border-stone-200 mb-6 text-left space-y-3">
+                    <div class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <i data-lucide="clipboard-check" class="w-4 h-4 text-[#ac2428]"></i>
+                        <span>Pasos del proceso manual de activación:</span>
+                    </div>
+                    <div class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                        <div class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-[#ac2428]/10 text-[#ac2428] font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">1</span>
+                            <span>Transfiere los <strong>$100 MXN</strong> a la cuenta CLABE: <strong class="font-mono text-slate-900 bg-white px-1.5 py-0.5 rounded border border-stone-300">722969010777399615</strong> (Mercado Pago / Dr. Israel Jiménez).</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-[#ac2428]/10 text-[#ac2428] font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">2</span>
+                            <span>Haz clic en el botón verde inferior para enviar tu comprobante directo por WhatsApp.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-[#ac2428]/10 text-[#ac2428] font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">3</span>
+                            <span>El asistente del consultorio confirma la recepción y te entrega el enlace al video, receta médica u orientación solicitada.</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Direct Prescription & WhatsApp Contact -->
+                <!-- Direct WhatsApp Contact for Proof Submission -->
                 <div class="bg-[#fdf2f2] p-5 rounded-2xl border border-[#ac2428]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
                         <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
                             <i data-lucide="message-circle" class="w-5 h-5 text-[#ac2428]"></i>
-                            <span>¿Deseas tu receta médica digital o tienes dudas?</span>
+                            <span>Enviar Comprobante al Consultorio</span>
                         </h4>
                         <p class="text-sm text-slate-600 mt-0.5">
-                            Tu folio de 100 MXN ya está validado. Pulsa el botón para abrir chat directo con el Dr. Israel.
+                            Tu solicitud está en espera de validación. Comparte tu captura por WhatsApp para activar tu contenido.
                         </p>
                     </div>
                     <a id="btn-whatsapp-treatment" href="#" target="_blank" class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-md transition flex items-center gap-2 shrink-0">
                         <i data-lucide="send" class="w-4 h-4"></i>
-                        <span>Contactar al Dr. Israel</span>
+                        <span>Enviar Comprobante por WhatsApp</span>
                     </a>
                 </div>
 
@@ -2153,21 +2203,13 @@
                     throw new Error(`Respuesta no satisfactoria del servidor (${response.status})`);
                 }
 
-                let isSuccess = false;
-                try {
-                    const data = await response.json();
-                    if (data && (data.status === "success" || data.status === "ok" || data.result === "success")) {
-                        isSuccess = true;
-                    }
-                } catch (e) {
-                    isSuccess = (response.status === 200);
+                // Strict validation: Require valid JSON with explicit status: "success"
+                const data = await response.json();
+                if (!data || data.status !== "success") {
+                    throw new Error("El servidor no confirmó la recepción con status: 'success'.");
                 }
 
-                if (!isSuccess) {
-                    throw new Error("El servidor no confirmó la recepción.");
-                }
-
-                return { ok: true };
+                return { ok: true, data };
             } catch (err) {
                 clearTimeout(timeoutId);
                 console.warn("Google Sheet sync notice:", err);
@@ -2207,14 +2249,8 @@
                 }
 
                 // Reset feedback containers
-                if (bookingSuccess) {
-                    bookingSuccess.classList.add('hidden');
-                    bookingSuccess.innerHTML = '';
-                }
-                if (bookingError) {
-                    bookingError.classList.add('hidden');
-                    bookingError.innerHTML = '';
-                }
+                if (bookingSuccess) bookingSuccess.classList.add('hidden');
+                if (bookingError) bookingError.classList.add('hidden');
 
                 // Submit button loading state
                 const submitBtn = appointmentForm.querySelector('button[type="submit"]');
@@ -2245,26 +2281,15 @@
                 try {
                     await sendToGoogleSheet(payload, 10000);
 
-                    // SUCCESS: Verified evidence of delivery
+                    // SUCCESS: Verified evidence of delivery (safe DOM updates, zero innerHTML with user input)
                     if (bookingSuccess) {
+                        const phoneDisplay = document.getElementById('booking-success-phone');
+                        if (phoneDisplay) phoneDisplay.textContent = phone;
+                        const waLink = document.getElementById('booking-success-wa');
+                        if (waLink) {
+                            waLink.href = `https://wa.me/523511502304?text=${encodeURIComponent(`Hola Dr. Israel Jiménez, registré mi solicitud de cita para ${name} en el sitio web UROMED. Quisiera confirmar recepción.`)}`;
+                        }
                         bookingSuccess.classList.remove('hidden');
-                        bookingSuccess.innerHTML = `
-                            <div class="space-y-3 p-1">
-                                <div class="flex items-center gap-2 text-emerald-800 font-bold text-base sm:text-lg">
-                                    <span class="w-6 h-6 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-sm">✓</span>
-                                    <span>¡Solicitud registrada y confirmada con éxito!</span>
-                                </div>
-                                <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
-                                    Hemos recibido tus datos correctamente en el sistema de UROMED. El asistente del Dr. Israel Jiménez se comunicará contigo al <strong>${phone}</strong> para confirmar tu horario.
-                                </p>
-                                <div class="pt-2">
-                                    <a href="https://wa.me/523511502304?text=${encodeURIComponent(`Hola Dr. Israel Jiménez, registré mi solicitud de cita para ${name} en el sitio web UROMED. Quisiera confirmar recepción.`)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold transition shadow-sm">
-                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                        <span>Abrir confirmación en WhatsApp (Opcional)</span>
-                                    </a>
-                                </div>
-                            </div>
-                        `;
                     }
 
                     // Fire verified conversion event only once delivery is confirmed
@@ -2276,31 +2301,13 @@
                     appointmentForm.reset();
 
                 } catch (err) {
-                    // ERROR: Clear feedback and safe fallback to WhatsApp/call
+                    // ERROR: Clear feedback and safe fallback to WhatsApp/call (safe DOM updates)
                     if (bookingError) {
-                        const fallbackMsg = encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, intenté registrar mi solicitud de consulta en el sitio web pero hubo un inconveniente de conexión.\n\n• Paciente: ${name}\n• Teléfono: ${phone}\n• Servicio: ${service}\n• Fecha preferente: ${date}`);
+                        const errWaLink = document.getElementById('booking-error-wa');
+                        if (errWaLink) {
+                            errWaLink.href = `https://wa.me/523511502304?text=${encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, intenté registrar mi solicitud de consulta en el sitio web pero hubo un inconveniente de conexión.\n\n• Paciente: ${name}\n• Teléfono: ${phone}\n• Servicio: ${service}\n• Fecha preferente: ${date}`)}`;
+                        }
                         bookingError.classList.remove('hidden');
-                        bookingError.innerHTML = `
-                            <div class="space-y-3 p-1">
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-amber-700 text-lg">⚠️</span>
-                                    <div>
-                                        <strong class="font-bold text-amber-950 block">No pudimos registrar tu cita automáticamente</strong>
-                                        <span class="text-xs sm:text-sm text-amber-900 block mt-1">Ocurrió un error temporal de conexión con el servidor. Para asegurar tu lugar sin demora, por favor envía tu solicitud directamente por WhatsApp:</span>
-                                    </div>
-                                </div>
-                                <div class="pt-1 flex flex-wrap gap-3">
-                                    <a href="https://wa.me/523511502304?text=${fallbackMsg}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold transition shadow-md">
-                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                        <span>Agendar directamente por WhatsApp</span>
-                                    </a>
-                                    <a href="tel:+523511502304" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-stone-300 text-slate-800 text-xs sm:text-sm font-bold hover:bg-stone-50 transition">
-                                        <i data-lucide="phone" class="w-4 h-4 text-[#ac2428]"></i>
-                                        <span>Llamar: +52 351 150 2304</span>
-                                    </a>
-                                </div>
-                            </div>
-                        `;
                     }
                 } finally {
                     if (submitBtn) {
@@ -2345,7 +2352,7 @@
             btnPay100.disabled = false;
             btnPay100.innerHTML = `
                 <i data-lucide="shield-check" class="w-5 h-5"></i>
-                <span>Pagar $100 MXN y Acceder de Inmediato</span>
+                <span>Solicitar Acceso a la Guía ($100 MXN)</span>
             `;
 
             // Open Modal with smooth Apple-style ease transition
@@ -2478,7 +2485,7 @@
                     `;
                 }
 
-                // Log payment / protocol request to Google Sheets
+                // Log payment / protocol request to Google Sheets (manual verification flow)
                 try {
                     await sendToGoogleSheet({
                         nombre: patientName,
@@ -2486,7 +2493,7 @@
                         tipo: isSpei ? "Solicitud Guía SPEI $100 MXN" : "Solicitud Guía Tarjeta $100 MXN",
                         servicio: currentVideoTitle,
                         notas: isSpei ? "Comprobante por WhatsApp" : "Solicitud de enlace seguro",
-                        estado: "Pendiente de Confirmación",
+                        estado: "Pendiente de Comprobante (Proceso Manual)",
                         monto: "$100.00 MXN",
                         timestamp: new Date().toISOString()
                     }, 6000);
@@ -2497,26 +2504,19 @@
                 modalPaymentState.classList.add('hidden');
                 modalSuccessState.classList.remove('hidden');
 
-                if (unlockedVideoPlayer && unlockedVideoSource) {
-                    unlockedVideoSource.src = currentVideoSrc;
-                    unlockedVideoPlayer.load();
-                    unlockedVideoPlayer.play().catch(() => {});
-                }
-
                 const waText = isSpei 
-                    ? encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, he realizado la transferencia SPEI de $100 MXN por el material de "${currentVideoTitle}".\n\n• Paciente: ${patientName}\n• WhatsApp: ${patientPhone}\n\nAdjunto comprobante para confirmación.`)
+                    ? encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, registré mi solicitud para la guía de "${currentVideoTitle}".\n\n• Paciente: ${patientName}\n• WhatsApp: ${patientPhone}\n\nAdjunto comprobante de transferencia SPEI de $100 MXN para validación manual.`)
                     : encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, solicito acceso a la guía de "${currentVideoTitle}" y enlace seguro de pago. Mi nombre es ${patientName} (Tel: ${patientPhone}).`);
 
-                    if (btnWhatsappTreatment) {
-                        btnWhatsappTreatment.href = `https://wa.me/523511502304?text=${waText}`;
-                    }
+                if (btnWhatsappTreatment) {
+                    btnWhatsappTreatment.href = `https://wa.me/523511502304?text=${waText}`;
+                }
 
-                    if (isSpei) {
-                        window.open(`https://wa.me/523511502304?text=${waText}`, '_blank');
-                    }
+                if (isSpei) {
+                    window.open(`https://wa.me/523511502304?text=${waText}`, '_blank');
+                }
 
-                    lucide.createIcons();
-                }, 900);
+                if (window.lucide) lucide.createIcons();
             });
         }
 
@@ -2608,16 +2608,17 @@
                         monto: "$0.00 MXN",
                         timestamp: new Date().toISOString()
                     }, 8000);
+
+                    // 2. Fire Meta Pixel Lead Conversion Event ONLY after verified delivery
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead', {
+                            content_name: 'Lead UROMED',
+                            content_category: 'Contacto Médico'
+                        });
+                    }
                 } catch(err) {
                     console.warn("Google Sheet sync notice:", err);
-                }
-
-                // 2. Fire Meta Pixel Lead Conversion Event (CLEAN - ZERO SENSITIVE PHI)
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead', {
-                        content_name: 'Lead UROMED',
-                        content_category: 'Contacto Médico'
-                    });
+                    // Do NOT fire Lead conversion if delivery could not be verified
                 }
 
                 // 3. Close the Lead Modal
