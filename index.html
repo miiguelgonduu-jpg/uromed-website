@@ -1561,8 +1561,13 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 mb-2">Síntomas o Especificaciones Previas</label>
-                            <textarea id="patient-notes" rows="3" placeholder="Describe brevemente tu motivo de consulta para preparar tu expediente previo..." class="w-full px-5 py-4 text-base rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none transition bg-white"></textarea>
+                            <label class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 mb-2">Preferencia de horario o notas de recepción <span class="text-xs text-slate-400 font-normal lowercase">(opcional)</span></label>
+                            <textarea id="patient-notes" rows="3" placeholder="Indica si prefieres turno matutino o vespertino, o si es tu primera consulta. (La valoración clínica detallada se realiza de manera confidencial directamente en consultorio)." class="w-full px-5 py-4 text-base rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none transition bg-white"></textarea>
+                        </div>
+
+                        <div class="flex items-start gap-2.5 text-xs text-slate-500 leading-relaxed pt-1">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-[#ac2428] shrink-0 mt-0.5"></i>
+                            <span>Tus datos de contacto se procesan con estricta confidencialidad médica conforme a la LFPDPPP únicamente para coordinar tu cita. Consulta nuestro <a href="/aviso-de-privacidad/" class="text-[#ac2428] font-bold underline hover:text-[#c22d32]">Aviso de Privacidad</a>.</span>
                         </div>
 
                         <button type="submit" class="w-full py-4.5 py-4 bg-[#ac2428] hover:bg-[#c22d32] text-white font-bold text-base sm:text-lg rounded-xl shadow-[0_10px_25px_rgba(172,36,40,0.35)] transition duration-200 flex items-center justify-center gap-2 btn-shimmer-uromed">
@@ -1570,9 +1575,8 @@
                             <span>Confirmar Solicitud de Cita VIP</span>
                         </button>
 
-                        <div id="booking-success" class="hidden p-5 rounded-2xl bg-[#fdf2f2] border border-[#ac2428]/30 text-[#ac2428] text-sm sm:text-base font-bold text-center">
-                            ¡Solicitud recibida! El equipo de atención médica del Dr. Israel Jimenez Heredia te contactará en breve para coordinar tu cita.
-                        </div>
+                        <div id="booking-success" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-950 text-sm sm:text-base font-medium"></div>
+                        <div id="booking-error" class="hidden p-5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-sm font-medium"></div>
                     </form>
                 </div>
 
@@ -1599,6 +1603,7 @@
                     <a href="/consulta-urologica/" class="hover:text-[#e87377] transition">Consulta Urológica</a>
                     <a href="/dr-israel-jimenez/" class="hover:text-[#e87377] transition">Dr. Israel Jiménez</a>
                     <a href="/ubicaciones/" class="hover:text-[#e87377] transition">Ubicaciones</a>
+                    <a href="/aviso-de-privacidad/" class="hover:text-[#e87377] transition">Aviso de Privacidad</a>
                     <a href="#scheduling" class="hover:text-[#e87377] transition">Citas VIP</a>
                 </div>
             </div>
@@ -1748,25 +1753,14 @@
 
                     <!-- Campos de Tarjeta Dinámicos -->
                     <div id="card-fields" class="space-y-3.5 pt-1">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Número de Tarjeta</label>
-                            <div class="relative">
-                                <input type="text" required placeholder="4152 •••• •••• 9821" maxlength="19" id="pay-card-num" class="w-full px-4 py-3 text-sm rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none transition font-mono bg-white">
-                                <div class="absolute right-3 top-3 flex items-center gap-1.5 text-slate-400">
-                                    <i data-lucide="lock" class="w-4 h-4 text-emerald-600"></i>
-                                </div>
+                        <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                            <div class="flex items-center gap-2 text-slate-900 font-bold">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600"></i>
+                                <span>Pago Seguro con Tarjeta Bancaria</span>
                             </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-3.5">
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Vencimiento (MM/AA)</label>
-                                <input type="text" required placeholder="08/28" maxlength="5" id="pay-exp" class="w-full px-4 py-3 text-sm rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none transition font-mono bg-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">CVV / CVC</label>
-                                <input type="password" required placeholder="•••" maxlength="4" id="pay-cvv" class="w-full px-4 py-3 text-sm rounded-xl border border-stone-300 focus:border-[#ac2428] focus:ring-2 focus:ring-[#ac2428]/20 outline-none transition font-mono bg-white">
-                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Por estricto cumplimiento de seguridad bancaria y certificación de protección de datos, el pago con tarjeta se procesa mediante un enlace cifrado seguro o terminal en consultorio. Al confirmar, recibirás tu acceso y enlace por WhatsApp.
+                            </p>
                         </div>
                     </div>
 
@@ -2136,57 +2130,185 @@
 
         // Google Sheets Integration Webhook (Pacientes UROMED)
         const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwWfrnw35n1DGzO7pArjDtU83Pmi6A_vFiOQYCV6FRe0TYM7YFtAw0QvfgFJzTABpbL/exec";
-        function sendToGoogleSheet(payload) {
+        
+        async function sendToGoogleSheet(payload, timeoutMs = 10000) {
             if (NIGHT_SECURITY_LOCK) {
                 console.info("🔒 Modo Nocturno de Seguridad Activo: Envío a base de datos pausado preventivamente.");
-                return;
+                return { ok: true, paused: true };
             }
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
             try {
-                fetch(GOOGLE_SHEET_WEBHOOK, {
+                // Using text/plain;charset=utf-8 to ensure CORS simple-request compliance with Google Apps Script
+                const response = await fetch(GOOGLE_SHEET_WEBHOOK, {
                     method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                }).catch(err => console.warn("Google Sheet sync notice:", err));
-            } catch (e) {
-                console.warn("Google Sheet sync error:", e);
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+
+                if (!response.ok) {
+                    throw new Error(`Respuesta no satisfactoria del servidor (${response.status})`);
+                }
+
+                let isSuccess = false;
+                try {
+                    const data = await response.json();
+                    if (data && (data.status === "success" || data.status === "ok" || data.result === "success")) {
+                        isSuccess = true;
+                    }
+                } catch (e) {
+                    isSuccess = (response.status === 200);
+                }
+
+                if (!isSuccess) {
+                    throw new Error("El servidor no confirmó la recepción.");
+                }
+
+                return { ok: true };
+            } catch (err) {
+                clearTimeout(timeoutId);
+                console.warn("Google Sheet sync notice:", err);
+                throw err;
             }
         }
 
-        // 5. Appointment Form Submit
+        // 5. Appointment Form Submit (Verified Async Flow)
         const appointmentForm = document.getElementById('appointment-form');
         const bookingSuccess = document.getElementById('booking-success');
+        const bookingError = document.getElementById('booking-error');
+
         if (appointmentForm) {
-            appointmentForm.addEventListener('submit', (e) => {
+            appointmentForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+
                 if (NIGHT_SECURITY_LOCK) {
                     window.open('https://wa.me/523511502304?text=Hola%20Dr.%20Israel%20Jimenez%20Heredia,%20deseo%20agendar%20una%20consulta%20VIP%20en%20UROMED%20Zamora.', '_blank');
                     return;
                 }
-                const name = document.getElementById('patient-name')?.value;
-                const phone = document.getElementById('patient-phone')?.value;
-                const service = document.getElementById('service-type')?.value;
-                const date = document.getElementById('appointment-date')?.value;
-                const notes = document.getElementById('patient-notes')?.value;
 
-                if (bookingSuccess) {
-                    bookingSuccess.classList.remove('hidden');
+                const nameInput = document.getElementById('patient-name');
+                const phoneInput = document.getElementById('patient-phone');
+                const serviceInput = document.getElementById('service-type');
+                const dateInput = document.getElementById('appointment-date');
+                const notesInput = document.getElementById('patient-notes');
+
+                const name = nameInput?.value?.trim() || "";
+                const phone = phoneInput?.value?.trim() || "";
+                const service = serviceInput?.value || "Consulta General";
+                const date = dateInput?.value || "";
+                const notes = notesInput?.value?.trim() || "";
+
+                if (!name || !phone) {
+                    alert("Por favor completa tu nombre y teléfono para continuar.");
+                    return;
                 }
 
-                // Send lead to Google Sheets in real-time
-                sendToGoogleSheet({
-                    nombre: name || "Anónimo",
-                    telefono: phone || "",
-                    tipo: "Cita Médica VIP",
-                    servicio: service || "Consulta General",
-                    notas: `Fecha preferente: ${date || 'No especificada'}. Notas: ${notes || 'Ninguna'}`,
-                    estado: "Solicitud Nueva",
-                    monto: "Por Determinar"
-                });
+                // Reset feedback containers
+                if (bookingSuccess) {
+                    bookingSuccess.classList.add('hidden');
+                    bookingSuccess.innerHTML = '';
+                }
+                if (bookingError) {
+                    bookingError.classList.add('hidden');
+                    bookingError.innerHTML = '';
+                }
 
-                // WhatsApp redirection
-                const msg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, deseo agendar una consulta VIP en UROMED.\n\n• Paciente: ${name}\n• Teléfono: ${phone}\n• Servicio: ${service}\n• Fecha preferente: ${date}\n• Notas: ${notes || 'Ninguna'}`);
-                window.open(`https://wa.me/523511502304?text=${msg}`, '_blank');
+                // Submit button loading state
+                const submitBtn = appointmentForm.querySelector('button[type="submit"]');
+                const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Verificando y registrando cita...</span>
+                    `;
+                }
+
+                // Payload with zero sensitive clinical symptoms (administrative only)
+                const payload = {
+                    nombre: name,
+                    telefono: phone,
+                    tipo: "Solicitud Cita Web",
+                    servicio: service,
+                    notas: `Fecha preferente: ${date || 'Por coordinar'}. Notas de recepción: ${notes || 'Ninguna'}`,
+                    estado: "Solicitud Nueva",
+                    monto: "Por Determinar",
+                    timestamp: new Date().toISOString()
+                };
+
+                try {
+                    await sendToGoogleSheet(payload, 10000);
+
+                    // SUCCESS: Verified evidence of delivery
+                    if (bookingSuccess) {
+                        bookingSuccess.classList.remove('hidden');
+                        bookingSuccess.innerHTML = `
+                            <div class="space-y-3 p-1">
+                                <div class="flex items-center gap-2 text-emerald-800 font-bold text-base sm:text-lg">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-sm">✓</span>
+                                    <span>¡Solicitud registrada y confirmada con éxito!</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+                                    Hemos recibido tus datos correctamente en el sistema de UROMED. El asistente del Dr. Israel Jiménez se comunicará contigo al <strong>${phone}</strong> para confirmar tu horario.
+                                </p>
+                                <div class="pt-2">
+                                    <a href="https://wa.me/523511502304?text=${encodeURIComponent(`Hola Dr. Israel Jiménez, registré mi solicitud de cita para ${name} en el sitio web UROMED. Quisiera confirmar recepción.`)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold transition shadow-sm">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                        <span>Abrir confirmación en WhatsApp (Opcional)</span>
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    // Fire verified conversion event only once delivery is confirmed
+                    if (typeof window.trackUromedEvent === 'function') {
+                        window.trackUromedEvent('appointment_form_submit', { form_name: 'appointment_request' });
+                    }
+
+                    // Reset form
+                    appointmentForm.reset();
+
+                } catch (err) {
+                    // ERROR: Clear feedback and safe fallback to WhatsApp/call
+                    if (bookingError) {
+                        const fallbackMsg = encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, intenté registrar mi solicitud de consulta en el sitio web pero hubo un inconveniente de conexión.\n\n• Paciente: ${name}\n• Teléfono: ${phone}\n• Servicio: ${service}\n• Fecha preferente: ${date}`);
+                        bookingError.classList.remove('hidden');
+                        bookingError.innerHTML = `
+                            <div class="space-y-3 p-1">
+                                <div class="flex items-start gap-2.5">
+                                    <span class="text-amber-700 text-lg">⚠️</span>
+                                    <div>
+                                        <strong class="font-bold text-amber-950 block">No pudimos registrar tu cita automáticamente</strong>
+                                        <span class="text-xs sm:text-sm text-amber-900 block mt-1">Ocurrió un error temporal de conexión con el servidor. Para asegurar tu lugar sin demora, por favor envía tu solicitud directamente por WhatsApp:</span>
+                                    </div>
+                                </div>
+                                <div class="pt-1 flex flex-wrap gap-3">
+                                    <a href="https://wa.me/523511502304?text=${fallbackMsg}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold transition shadow-md">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                        <span>Agendar directamente por WhatsApp</span>
+                                    </a>
+                                    <a href="tel:+523511502304" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-stone-300 text-slate-800 text-xs sm:text-sm font-bold hover:bg-stone-50 transition">
+                                        <i data-lucide="phone" class="w-4 h-4 text-[#ac2428]"></i>
+                                        <span>Llamar: +52 351 150 2304</span>
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    }
+                } finally {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                    }
+                    if (window.lucide) lucide.createIcons();
+                }
             });
         }
 
@@ -2272,22 +2394,19 @@
                 btn.classList.remove('border-stone-300', 'bg-white', 'text-slate-700', 'font-semibold');
 
                 selectedPayMethod = btn.getAttribute('data-method') || "card";
-                const cardInputs = document.querySelectorAll('#card-fields input');
 
                 if (selectedPayMethod === "card") {
                     if (cardFields) cardFields.classList.remove('hidden');
                     if (speiInfo) speiInfo.classList.add('hidden');
-                    cardInputs.forEach(input => input.setAttribute('required', 'required'));
                     if (btnPay100) {
                         btnPay100.innerHTML = `
                             <i data-lucide="shield-check" class="w-5 h-5"></i>
-                            <span>Pagar $100 MXN y Acceder de Inmediato</span>
+                            <span>Solicitar Acceso Seguro ($100 MXN)</span>
                         `;
                     }
                 } else if (selectedPayMethod === "spei") {
                     if (cardFields) cardFields.classList.add('hidden');
                     if (speiInfo) speiInfo.classList.remove('hidden');
-                    cardInputs.forEach(input => input.removeAttribute('required'));
                     if (btnPay100) {
                         btnPay100.innerHTML = `
                             <i data-lucide="send" class="w-5 h-5"></i>
@@ -2297,11 +2416,10 @@
                 } else {
                     if (cardFields) cardFields.classList.remove('hidden');
                     if (speiInfo) speiInfo.classList.add('hidden');
-                    cardInputs.forEach(input => input.setAttribute('required', 'required'));
                     if (btnPay100) {
                         btnPay100.innerHTML = `
                             <i data-lucide="shield-check" class="w-5 h-5"></i>
-                            <span>Pagar $100 MXN</span>
+                            <span>Solicitar Acceso ($100 MXN)</span>
                         `;
                     }
                 }
@@ -2340,71 +2458,54 @@
             }
         };
 
-        // Format card input
-        const cardNumInput = document.getElementById('pay-card-num');
-        if (cardNumInput) {
-            cardNumInput.addEventListener('input', (e) => {
-                let val = e.target.value.replace(/\D/g, '').substring(0, 16);
-                let formatted = val.match(/.{1,4}/g)?.join(' ') || val;
-                e.target.value = formatted;
-            });
-        }
-
-        // Format exp date
-        const expInput = document.getElementById('pay-exp');
-        if (expInput) {
-            expInput.addEventListener('input', (e) => {
-                let val = e.target.value.replace(/\D/g, '').substring(0, 4);
-                if (val.length >= 2) {
-                    e.target.value = val.substring(0, 2) + '/' + val.substring(2);
-                } else {
-                    e.target.value = val;
-                }
-            });
-        }
-
         // Checkout submit simulation
         if (checkoutForm) {
-            checkoutForm.addEventListener('submit', (e) => {
+            checkoutForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const patientName = document.getElementById('pay-name')?.value || "Paciente";
-                const patientPhone = document.getElementById('pay-whatsapp')?.value || "";
+                const patientName = document.getElementById('pay-name')?.value?.trim() || "Paciente";
+                const patientPhone = document.getElementById('pay-whatsapp')?.value?.trim() || "";
 
-                btnPay100.disabled = true;
+                if (btnPay100) btnPay100.disabled = true;
                 const isSpei = selectedPayMethod === "spei";
 
-                // Log payment to Google Sheets in real-time
-                sendToGoogleSheet({
-                    nombre: patientName,
-                    telefono: patientPhone,
-                    tipo: isSpei ? "Pago SPEI $100 MXN" : "Pago Tarjeta $100 MXN",
-                    servicio: currentVideoTitle,
-                    notas: isSpei ? "Comprobante enviado por WhatsApp al doctor" : "Pago con tarjeta registrado",
-                    estado: isSpei ? "Transferencia Notificada" : "Acceso Desbloqueado",
-                    monto: "$100.00 MXN"
-                });
+                if (btnPay100) {
+                    btnPay100.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>${isSpei ? 'Conectando con WhatsApp del Dr. Israel...' : 'Validando solicitud segura ($100 MXN)...'}</span>
+                    `;
+                }
 
-                btnPay100.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span>${isSpei ? 'Conectando con WhatsApp del Dr. Israel...' : 'Validando pago seguro de 100 MXN...'}</span>
-                `;
+                // Log payment / protocol request to Google Sheets
+                try {
+                    await sendToGoogleSheet({
+                        nombre: patientName,
+                        telefono: patientPhone,
+                        tipo: isSpei ? "Solicitud Guía SPEI $100 MXN" : "Solicitud Guía Tarjeta $100 MXN",
+                        servicio: currentVideoTitle,
+                        notas: isSpei ? "Comprobante por WhatsApp" : "Solicitud de enlace seguro",
+                        estado: "Pendiente de Confirmación",
+                        monto: "$100.00 MXN",
+                        timestamp: new Date().toISOString()
+                    }, 6000);
+                } catch(err) {
+                    console.warn("Google Sheet sync notice:", err);
+                }
 
-                setTimeout(() => {
-                    modalPaymentState.classList.add('hidden');
-                    modalSuccessState.classList.remove('hidden');
+                modalPaymentState.classList.add('hidden');
+                modalSuccessState.classList.remove('hidden');
 
-                    if (unlockedVideoPlayer && unlockedVideoSource) {
-                        unlockedVideoSource.src = currentVideoSrc;
-                        unlockedVideoPlayer.load();
-                        unlockedVideoPlayer.play().catch(() => {});
-                    }
+                if (unlockedVideoPlayer && unlockedVideoSource) {
+                    unlockedVideoSource.src = currentVideoSrc;
+                    unlockedVideoPlayer.load();
+                    unlockedVideoPlayer.play().catch(() => {});
+                }
 
-                    const waText = isSpei 
-                        ? encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, he realizado la transferencia SPEI de $100 MXN a su cuenta de Mercado Pago por el protocolo de "${currentVideoTitle}".\n\n• Paciente: ${patientName}\n• WhatsApp: ${patientPhone}\n\nAdjunto aquí mi comprobante de transferencia para recibir mi receta y seguimiento.`)
-                        : encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, he realizado el pago de 100 MXN en UROMED por el video y tratamiento para "${currentVideoTitle}". Mi nombre es ${patientName} (Tel: ${patientPhone}). Solicito mi receta y protocolo clínico.`);
+                const waText = isSpei 
+                    ? encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, he realizado la transferencia SPEI de $100 MXN por el material de "${currentVideoTitle}".\n\n• Paciente: ${patientName}\n• WhatsApp: ${patientPhone}\n\nAdjunto comprobante para confirmación.`)
+                    : encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, solicito acceso a la guía de "${currentVideoTitle}" y enlace seguro de pago. Mi nombre es ${patientName} (Tel: ${patientPhone}).`);
 
                     if (btnWhatsappTreatment) {
                         btnWhatsappTreatment.href = `https://wa.me/523511502304?text=${waText}`;
@@ -2482,91 +2583,51 @@
             }, 500);
         }
 
-        // Handle Lead Form Submission
+        // Handle Lead Form Submission (Privacy & Compliance Optimized)
         if (metaLeadForm) {
-            metaLeadForm.addEventListener('submit', (e) => {
+            metaLeadForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (NIGHT_SECURITY_LOCK) {
                     closeMetaLeadModal();
                     window.open('https://wa.me/523511502304?text=Hola%20Dr.%20Israel%20Jimenez%20Heredia,%20deseo%20atencion%20urologica%20prioritaria%20en%20UROMED%20Zamora.', '_blank');
                     return;
                 }
-                const leadName = document.getElementById('meta-input-name')?.value || "Paciente";
-                const leadPhone = document.getElementById('meta-input-phone')?.value || "";
-                const leadEmail = document.getElementById('meta-input-email')?.value || "No proporcionado";
-                const reasonSelect = document.getElementById('meta-input-reason');
-                const reasonCode = reasonSelect ? reasonSelect.value : "general";
-                const reasonLabel = reasonSelect ? reasonSelect.options[reasonSelect.selectedIndex].text : "Consulta General";
+                const leadName = document.getElementById('meta-input-name')?.value?.trim() || "Paciente";
+                const leadPhone = document.getElementById('meta-input-phone')?.value?.trim() || "";
+                const leadEmail = document.getElementById('meta-input-email')?.value?.trim() || "No proporcionado";
 
-                // 1. Google Sheets sync in real-time
-                sendToGoogleSheet({
-                    nombre: leadName,
-                    telefono: leadPhone,
-                    metodo: "Meta Ads Formulario Emergente",
-                    servicio: reasonLabel + (leadEmail !== 'No proporcionado' ? ` | Email: ${leadEmail}` : ''),
-                    notas: "Prospecto calificado desde campaña de Meta Ads",
-                    estado: "Lead Calificado",
-                    monto: reasonCode === 'fertilidad' ? "$100.00 MXN (Guía)" : "$0.00 MXN (Lead Consulta)"
-                });
+                // 1. Google Sheets sync (Administrative only, no sensitive PHI)
+                try {
+                    await sendToGoogleSheet({
+                        nombre: leadName,
+                        telefono: leadPhone,
+                        metodo: "Meta Ads Formulario Emergente",
+                        servicio: "Consulta de Valoración Médica",
+                        notas: `Canal: Campaña Meta Ads | Email: ${leadEmail}`,
+                        estado: "Lead Calificado",
+                        monto: "$0.00 MXN",
+                        timestamp: new Date().toISOString()
+                    }, 8000);
+                } catch(err) {
+                    console.warn("Google Sheet sync notice:", err);
+                }
 
-                // 2. Fire Meta Pixel Lead Conversion Event
+                // 2. Fire Meta Pixel Lead Conversion Event (CLEAN - ZERO SENSITIVE PHI)
                 if (typeof fbq === 'function') {
                     fbq('track', 'Lead', {
-                        content_name: reasonLabel,
-                        content_category: 'Meta Ads Lead Form',
-                        value: reasonCode === 'fertilidad' ? 100.00 : 0.00,
-                        currency: 'MXN'
+                        content_name: 'Lead UROMED',
+                        content_category: 'Contacto Médico'
                     });
                 }
 
                 // 3. Close the Lead Modal
                 closeMetaLeadModal();
 
-                // 4. Ad-Hoc Routing based on user reason:
-                if (reasonCode === 'fertilidad') {
-                    // Pre-fill payment fields
-                    const payNameInput = document.getElementById('pay-name');
-                    const payPhoneInput = document.getElementById('pay-whatsapp');
-                    if (payNameInput) payNameInput.value = leadName;
-                    if (payPhoneInput) payPhoneInput.value = leadPhone;
-
-                    // Smooth scroll to solutions and open payment modal
-                    setTimeout(() => {
-                        const solutionsSec = document.getElementById('solutions');
-                        if (solutionsSec) solutionsSec.scrollIntoView({ behavior: 'smooth' });
-                        if (window.openVideoPaymentModal) {
-                            window.openVideoPaymentModal('Guía Digital: Fertilidad Masculina Paso a Paso', 'videos/hospital-video-israel.mp4');
-                        }
-                    }, 350);
-                } else if (reasonCode === 'ereccion') {
-                    setTimeout(() => {
-                        const servicesSec = document.getElementById('services');
-                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
-                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por el tema de Falla de Erección (Salud Andrológica).\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nQuisiera agendar una valoración médica confidencial.`);
-                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
-                    }, 350);
-                } else if (reasonCode === 'energia') {
-                    setTimeout(() => {
-                        const servicesSec = document.getElementById('services');
-                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
-                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por Falta de Energía y Balance Hormonal.\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nQuisiera información sobre el perfil de testosterona y consulta.`);
-                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
-                    }, 350);
-                } else if (reasonCode === 'vph') {
-                    setTimeout(() => {
-                        const servicesSec = document.getElementById('services');
-                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
-                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por valoración y retiro láser de VPH.\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nSolicito atención prioritaria en Zamora.`);
-                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
-                    }, 350);
-                } else {
-                    setTimeout(() => {
-                        const servicesSec = document.getElementById('services');
-                        if (servicesSec) servicesSec.scrollIntoView({ behavior: 'smooth' });
-                        const waMsg = encodeURIComponent(`Hola Dr. Israel Jimenez Heredia, me acabo de registrar en el sitio web UROMED por motivo de "${reasonLabel}".\n\n• Nombre: ${leadName}\n• Teléfono: ${leadPhone}\n\nQuisiera agendar una consulta en Zamora.`);
-                        window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
-                    }, 350);
-                }
+                // 4. Dignified WhatsApp redirection (Protects patient privacy in URL)
+                setTimeout(() => {
+                    const waMsg = encodeURIComponent(`Hola Dr. Israel Jiménez Heredia, solicito información para una consulta médica especializada en UROMED Zamora.\n\n• Paciente: ${leadName}\n• Teléfono: ${leadPhone}`);
+                    window.open(`https://wa.me/523511502304?text=${waMsg}`, '_blank');
+                }, 300);
             });
         }
 
